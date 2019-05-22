@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "VK tuneid",
+    "description": "This extension provides VK music id for tracks opened in a current tab.",
+    "version": "1",
+    "author": "rutra",
+    "page_action": {
+      "default_icon": "icon.png",
+      "default_title": "VK tuneId",
+      "default_popup": "popup.html"
+    },
+    "content_scripts" : [
+        {
+            "matches" : ["https://*.vk.com/*", "http://*.vk.com/*"],
+            "js" : ["jquery-3.4.1.min.js", "background.js"],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+     "permissions": ["webRequest",
+                     "tabs", 
+                     "https://*.vk.com/*",
+                     "http://*.vk.com/*",
+                     "activeTab"
+                ],
+    "web_accessible_resources": [
+                    "/contentExt.js",
+                    "/popper.min.js",
+                    "/tippy.min.js"
+    ]
+    }
